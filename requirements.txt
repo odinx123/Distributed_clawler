@@ -1,0 +1,6 @@
+aiohttp
+aioredis
+redis
+pandas
+numpy
+fake-useragent
