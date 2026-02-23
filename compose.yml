@@ -1,0 +1,18 @@
+services:
+  redis:
+    image: redis:alpine
+    container_name: crawler_redis
+    ports:
+      - "127.0.0.1:6379:6379"
+    command: redis-server --save 60 1 --loglevel warning
+
+  mysql:
+    image: mysql:8.0
+    container_name: crawler_mysql
+    ports:
+      - "127.0.0.1:3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: YourPassword123
+      MYSQL_DATABASE: crawler_db
+    volumes:
+      - ./mysql_data:/var/lib/mysql
